@@ -1,0 +1,43 @@
+14:41:39 $ make clean
+Removing compiled objects and images
+-[spede] ~/phase0-JoeyBlount/01-hello-world (main=)
+14:41:42 $ spede-target
+The socket file './spede.sock' exists but SPEDE doesn't appear to be running
+
+Delete the socket and continue execution? (y/n) y
+Launching SPEDE target to run in the background
+-[spede] ~/phase0-JoeyBlount/01-hello-world (main=)
+14:41:52 $ make
+Done linking "build/MyOS.dli" (with GDB enabled) at 1m.
+-[spede] ~/phase0-JoeyBlount/01-hello-world {main %=}
+14:41:59 $ spede-run -d
+The SPEDE Target will be reset, are you sure? (y/n) y
+Resetting the SPEDE Target...
+Downloading image 'build/MyOS.dli' to SPEDE Target via /dev/pts/1...
+File type is 'ELF'
+Total blocks to download:  0x8a  (128 bytes each)
+
+Load Successful ; Code loaded at 0x0x101000 (590 bytes/sec)
+Executing the image 'build/MyOS.dli' on the SPEDE Target with GDB Enabled
+Launching GDB...
+Reading symbols from build/MyOS.dli...
+Expanding full symbols from build/MyOS.dli...
+Remote debugging using /dev/pts/1
+0x0010255d in breakpoint ()
+Temporary breakpoint 1 at 0x101183: file src/hello.c, line 5.
+
+Temporary breakpoint 1, main () at src/hello.c:5
+5	    printf("Hello, world!\n");
+SPEDE GDB$ 
+SPEDE GDB$ 
+SPEDE GDB$ 
+SPEDE GDB$ continue
+Continuing.
+Hello, world!
+Welcome to MyOS!
+[Inferior 1 (Remote target) exited normally]
+SPEDE GDB$ continue
+The program is not being run.
+SPEDE GDB$ quit
+
+
